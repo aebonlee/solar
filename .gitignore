@@ -8,3 +8,4 @@ dist
 NUL
 nul
 .claude/
+tsconfig.tsbuildinfo
