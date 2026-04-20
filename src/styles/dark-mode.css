@@ -1,0 +1,90 @@
+/* ═══════════════════════════════════════════
+   Dark Mode
+   ═══════════════════════════════════════════ */
+
+[data-theme="dark"] {
+  --bg: #0F172A;
+  --bg-secondary: #1E293B;
+  --bg-tertiary: #334155;
+  --text: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --border: #334155;
+  --border-light: #1E293B;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.5);
+}
+
+[data-theme="dark"] .navbar {
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom-color: var(--border);
+}
+
+[data-theme="dark"] .dropdown-menu {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .auth-card {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .lesson-card,
+[data-theme="dark"] .lab-card,
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .resource-card,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .card {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .timeline-item {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .timeline-dot {
+  border-color: var(--bg);
+}
+
+[data-theme="dark"] .form-group input {
+  background: var(--bg);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+[data-theme="dark"] .form-group input:focus {
+  border-color: var(--primary-light);
+}
+
+[data-theme="dark"] .filter-btn {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .toast-success { background: #064E3B; color: #A7F3D0; border-color: #065F46; }
+[data-theme="dark"] .toast-error { background: #7F1D1D; color: #FECACA; border-color: #991B1B; }
+[data-theme="dark"] .toast-warning { background: #78350F; color: #FDE68A; border-color: #92400E; }
+[data-theme="dark"] .toast-info { background: #1E3A5A; color: #BFDBFE; border-color: #1D4ED8; }
+
+[data-theme="dark"] .oauth-btn {
+  background: var(--bg);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+[data-theme="dark"] .lesson-objectives {
+  background: var(--bg);
+}
+
+[data-theme="dark"] .profile-card {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .progress-section {
+  background: var(--bg-secondary);
+}

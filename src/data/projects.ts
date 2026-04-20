@@ -1,0 +1,48 @@
+import type { ProjectTrack } from '../types';
+
+export const PROJECT_TRACKS: ProjectTrack[] = [
+  {
+    id: 'smart-qa',
+    title: 'Smart Q&A 시스템',
+    titleEn: 'Smart Q&A System',
+    description: '사내 문서/규정을 학습한 RAG 기반 질의응답 시스템을 구축합니다. 벡터 DB를 활용한 문서 검색과 Solar LLM의 답변 생성을 결합하여 정확한 답변을 제공합니다.',
+    icon: 'fa-magnifying-glass',
+    color: '#3B82F6',
+    difficulty: 'intermediate',
+    skills: ['RAG', 'Vector DB', 'Document Parsing', 'Solar API', 'React'],
+    deliverables: ['RAG 파이프라인 코드', '벡터 DB 구축 스크립트', 'Q&A 웹 인터페이스', '성능 평가 리포트'],
+  },
+  {
+    id: 'ai-chatbot',
+    title: 'AI 상담 챗봇',
+    titleEn: 'AI Consulting Chatbot',
+    description: '고객 상담을 자동화하는 멀티턴 AI 챗봇을 개발합니다. 대화 맥락을 이해하고, 적절한 응답을 생성하며, 필요시 상담원에게 연결하는 기능을 구현합니다.',
+    icon: 'fa-headset',
+    color: '#10B981',
+    difficulty: 'intermediate',
+    skills: ['Streaming', 'Conversation Management', 'UI/UX', 'Solar API', 'WebSocket'],
+    deliverables: ['챗봇 백엔드 서버', '실시간 채팅 UI', '대화 로그 분석', '사용자 만족도 지표'],
+  },
+  {
+    id: 'content-agent',
+    title: '콘텐츠 생성 에이전트',
+    titleEn: 'Content Generation Agent',
+    description: '마케팅 콘텐츠(블로그, SNS, 이메일)를 자동 생성하는 AI 에이전트를 만듭니다. Function Calling으로 외부 도구를 연동하여 이미지 검색, SEO 분석 등을 수행합니다.',
+    icon: 'fa-pen-nib',
+    color: '#8B5CF6',
+    difficulty: 'advanced',
+    skills: ['Function Calling', 'Multi-Agent', 'API Integration', 'Prompt Engineering', 'SEO'],
+    deliverables: ['에이전트 오케스트레이터', '도구 통합 모듈', '콘텐츠 생성 대시보드', '품질 평가 체계'],
+  },
+  {
+    id: 'data-analyzer',
+    title: '데이터 분석 어시스턴트',
+    titleEn: 'Data Analysis Assistant',
+    description: '자연어 질의를 SQL이나 분석 코드로 변환하는 데이터 분석 도우미를 개발합니다. 사용자가 쉽게 데이터 인사이트를 얻을 수 있도록 시각화까지 지원합니다.',
+    icon: 'fa-chart-line',
+    color: '#F59E0B',
+    difficulty: 'advanced',
+    skills: ['Text-to-SQL', 'Data Visualization', 'Code Generation', 'Solar API', 'Pandas'],
+    deliverables: ['NL-to-SQL 변환기', '자동 시각화 모듈', '인터랙티브 대시보드', '정확도 벤치마크'],
+  },
+];

@@ -1,0 +1,44 @@
+import type { Notice } from '../types';
+
+export const NOTICES: Notice[] = [
+  {
+    id: 1,
+    title: '[필독] Solar AI Learning Studio 과정 안내',
+    content: '본 과정은 국산 LLM Solar를 활용한 AI 서비스 개발 실무 교육입니다. 7일간(52시간) 진행되며, 이론 강의와 실습을 병행합니다. 수료 조건: 출석 80% 이상 + 팀 프로젝트 제출.',
+    category: 'announcement',
+    date: '2026-04-21',
+    pinned: true,
+  },
+  {
+    id: 2,
+    title: '[안내] 개발 환경 사전 준비 사항',
+    content: '원활한 수업 진행을 위해 다음을 사전에 준비해주세요: Python 3.10+, VS Code, Git, Chrome 브라우저. Node.js 18+ (Day 4 챗봇 UI 개발 시 필요). 상세 설치 가이드는 자료실을 참고하세요.',
+    category: 'announcement',
+    date: '2026-04-20',
+    pinned: true,
+  },
+  {
+    id: 3,
+    title: '[업데이트] Solar API v2.1 업데이트 안내',
+    content: 'Solar API가 v2.1로 업데이트되었습니다. 주요 변경사항: Function Calling 지원 강화, Streaming 성능 개선, 새로운 임베딩 모델 추가. 기존 코드와 호환됩니다.',
+    category: 'update',
+    date: '2026-04-18',
+    pinned: false,
+  },
+  {
+    id: 4,
+    title: '[이벤트] 팀 프로젝트 우수팀 시상',
+    content: '팀 프로젝트 발표에서 우수팀으로 선정되면 Upstage API 크레딧 10만원을 드립니다. 평가 기준: 기술 구현(40%), 서비스 완성도(30%), 발표(20%), 팀워크(10%).',
+    category: 'event',
+    date: '2026-04-17',
+    pinned: false,
+  },
+  {
+    id: 5,
+    title: '[안내] 실습 환경 접속 정보',
+    content: '클라우드 실습 환경이 제공됩니다. 개인 계정으로 접속하시면 사전 설정된 Jupyter Lab 환경을 이용할 수 있습니다. 접속 정보는 수업 당일 안내합니다.',
+    category: 'announcement',
+    date: '2026-04-15',
+    pinned: false,
+  },
+];
