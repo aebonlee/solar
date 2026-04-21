@@ -130,6 +130,22 @@
   background: var(--bg-tertiary);
 }
 
+.dropdown-divider-label {
+  padding: 0.5rem 1rem 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  border-top: 1px solid var(--border-light);
+  margin-top: 0.3rem;
+}
+
+.dropdown-divider-label:first-child {
+  border-top: none;
+  margin-top: 0;
+}
+
 /* Actions */
 .navbar-actions {
   display: flex;

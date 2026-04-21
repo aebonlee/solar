@@ -11,15 +11,15 @@ export default function Navbar(): ReactElement {
   const { language, toggleLanguage, t } = useLanguage();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [instructorOpen, setInstructorOpen] = useState(false);
-  const [learnerOpen, setLearnerOpen] = useState(false);
+  const [courseOpen, setCourseOpen] = useState(false);
+  const [communityOpen, setCommunityOpen] = useState(false);
   const [colorOpen, setColorOpen] = useState(false);
   const colorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMobileOpen(false);
-    setInstructorOpen(false);
-    setLearnerOpen(false);
+    setCourseOpen(false);
+    setCommunityOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -51,61 +51,72 @@ export default function Navbar(): ReactElement {
         </button>
 
         <div className={`navbar-menu ${mobileOpen ? 'is-open' : ''}`}>
-          <Link to="/course-intro" className={`navbar-link ${isActive('/course-intro') ? 'active' : ''}`}>
-            {t('nav.course')}
+          {/* About */}
+          <Link to="/about" className={`navbar-link ${isActive('/about') ? 'active' : ''}`}>
+            {t('nav.about')}
           </Link>
 
-          {/* 교강사용 Dropdown */}
-          {isAdmin && (
-            <div className={`navbar-dropdown ${instructorOpen ? 'is-open' : ''}`}>
-              <button
-                className={`navbar-link dropdown-trigger ${location.pathname.startsWith('/instructor') ? 'active' : ''}`}
-                onClick={() => setInstructorOpen(!instructorOpen)}
-              >
-                {t('nav.instructor')} <i className="fas fa-chevron-down"></i>
-              </button>
-              <div className="dropdown-menu">
-                <Link to="/instructor/dashboard" className="dropdown-item">{t('instructor.dashboard')}</Link>
-                <Link to="/instructor/teaching-guide" className="dropdown-item">{t('instructor.guide')}</Link>
-                <Link to="/instructor/lesson-plans" className="dropdown-item">{t('instructor.lessons')}</Link>
-                <Link to="/instructor/lab-materials" className="dropdown-item">{t('instructor.labs')}</Link>
-                <Link to="/instructor/projects" className="dropdown-item">{t('instructor.projects')}</Link>
-                <Link to="/instructor/evaluation" className="dropdown-item">{t('instructor.evaluation')}</Link>
-              </div>
+          {/* 과정소개 Dropdown (교강사용 + 학습자용) */}
+          <div className={`navbar-dropdown ${courseOpen ? 'is-open' : ''}`}>
+            <button
+              className={`navbar-link dropdown-trigger ${location.pathname.startsWith('/instructor') || location.pathname.startsWith('/learner') || isActive('/course-intro') ? 'active' : ''}`}
+              onClick={() => setCourseOpen(!courseOpen)}
+            >
+              {t('nav.course')} <i className="fas fa-chevron-down"></i>
+            </button>
+            <div className="dropdown-menu">
+              {isAdmin && (
+                <>
+                  <div className="dropdown-divider-label">{t('course.instructor')}</div>
+                  <Link to="/instructor/dashboard" className="dropdown-item">{t('instructor.dashboard')}</Link>
+                  <Link to="/instructor/teaching-guide" className="dropdown-item">{t('instructor.guide')}</Link>
+                  <Link to="/instructor/lesson-plans" className="dropdown-item">{t('instructor.lessons')}</Link>
+                  <Link to="/instructor/lab-materials" className="dropdown-item">{t('instructor.labs')}</Link>
+                  <Link to="/instructor/projects" className="dropdown-item">{t('instructor.projects')}</Link>
+                  <Link to="/instructor/evaluation" className="dropdown-item">{t('instructor.evaluation')}</Link>
+                </>
+              )}
+              {isLoggedIn && (
+                <>
+                  <div className="dropdown-divider-label">{t('course.learner')}</div>
+                  <Link to="/learner/dashboard" className="dropdown-item">{t('learner.dashboard')}</Link>
+                  <Link to="/learner/roadmap" className="dropdown-item">{t('learner.roadmap')}</Link>
+                  <Link to="/learner/lessons" className="dropdown-item">{t('learner.lessons')}</Link>
+                  <Link to="/learner/labs" className="dropdown-item">{t('learner.labs')}</Link>
+                  <Link to="/learner/projects" className="dropdown-item">{t('learner.projects')}</Link>
+                  <Link to="/learner/resources" className="dropdown-item">{t('learner.resources')}</Link>
+                  <Link to="/learner/submissions" className="dropdown-item">{t('learner.submissions')}</Link>
+                  <Link to="/learner/portfolio" className="dropdown-item">{t('learner.portfolio')}</Link>
+                </>
+              )}
+              {!isLoggedIn && (
+                <Link to="/login" className="dropdown-item" style={{ color: 'var(--text-muted)' }}>
+                  <i className="fas fa-lock"></i> 로그인 후 이용 가능
+                </Link>
+              )}
             </div>
-          )}
+          </div>
 
-          {/* 학습자용 Dropdown */}
-          {isLoggedIn && (
-            <div className={`navbar-dropdown ${learnerOpen ? 'is-open' : ''}`}>
-              <button
-                className={`navbar-link dropdown-trigger ${location.pathname.startsWith('/learner') ? 'active' : ''}`}
-                onClick={() => setLearnerOpen(!learnerOpen)}
-              >
-                {t('nav.learner')} <i className="fas fa-chevron-down"></i>
-              </button>
-              <div className="dropdown-menu">
-                <Link to="/learner/dashboard" className="dropdown-item">{t('learner.dashboard')}</Link>
-                <Link to="/learner/roadmap" className="dropdown-item">{t('learner.roadmap')}</Link>
-                <Link to="/learner/lessons" className="dropdown-item">{t('learner.lessons')}</Link>
-                <Link to="/learner/labs" className="dropdown-item">{t('learner.labs')}</Link>
-                <Link to="/learner/projects" className="dropdown-item">{t('learner.projects')}</Link>
-                <Link to="/learner/resources" className="dropdown-item">{t('learner.resources')}</Link>
-                <Link to="/learner/submissions" className="dropdown-item">{t('learner.submissions')}</Link>
-                <Link to="/learner/portfolio" className="dropdown-item">{t('learner.portfolio')}</Link>
-              </div>
+          {/* 프로젝트 */}
+          <Link to="/projects" className={`navbar-link ${isActive('/projects') ? 'active' : ''}`}>
+            {t('nav.projects')}
+          </Link>
+
+          {/* 커뮤니티 Dropdown */}
+          <div className={`navbar-dropdown ${communityOpen ? 'is-open' : ''}`}>
+            <button
+              className={`navbar-link dropdown-trigger ${isActive('/gallery') || isActive('/resources') || isActive('/notices') || isActive('/freeboard') ? 'active' : ''}`}
+              onClick={() => setCommunityOpen(!communityOpen)}
+            >
+              {t('nav.community')} <i className="fas fa-chevron-down"></i>
+            </button>
+            <div className="dropdown-menu">
+              <Link to="/gallery" className="dropdown-item">{t('community.gallery')}</Link>
+              <Link to="/resources" className="dropdown-item">{t('community.resources')}</Link>
+              <Link to="/notices" className="dropdown-item">{t('community.notices')}</Link>
+              <Link to="/freeboard" className="dropdown-item">{t('community.freeboard')}</Link>
             </div>
-          )}
-
-          <Link to="/gallery" className={`navbar-link ${isActive('/gallery') ? 'active' : ''}`}>
-            {t('nav.gallery')}
-          </Link>
-          <Link to="/resources" className={`navbar-link ${isActive('/resources') ? 'active' : ''}`}>
-            {t('nav.resources')}
-          </Link>
-          <Link to="/notices" className={`navbar-link ${isActive('/notices') ? 'active' : ''}`}>
-            {t('nav.notices')}
-          </Link>
+          </div>
 
           <div className="navbar-actions">
             {isAdmin && (

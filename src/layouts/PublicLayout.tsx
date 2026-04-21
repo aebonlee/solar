@@ -8,10 +8,13 @@ import type { ReactElement } from 'react';
 
 // Public pages
 const Home = lazy(() => import('../pages/Home'));
+const About = lazy(() => import('../pages/About'));
 const CourseIntro = lazy(() => import('../pages/CourseIntro'));
+const ProjectShowcase = lazy(() => import('../pages/ProjectShowcase'));
 const ProjectGallery = lazy(() => import('../pages/ProjectGallery'));
 const Resources = lazy(() => import('../pages/Resources'));
 const Notices = lazy(() => import('../pages/Notices'));
+const FreeBoard = lazy(() => import('../pages/FreeBoard'));
 const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
 const ForgotPassword = lazy(() => import('../pages/ForgotPassword'));
@@ -57,10 +60,13 @@ export default function PublicLayout(): ReactElement {
           <Routes>
             {/* Public */}
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/course-intro" element={<CourseIntro />} />
+            <Route path="/projects" element={<ProjectShowcase />} />
             <Route path="/gallery" element={<ProjectGallery />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/notices" element={<Notices />} />
+            <Route path="/freeboard" element={<FreeBoard />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
