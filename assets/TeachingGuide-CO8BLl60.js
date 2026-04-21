@@ -1,4 +1,4 @@
-import{j as n}from"./index-BVrnXGHF.js";function t(){return n.jsxs(n.Fragment,{children:[n.jsx("div",{className:"page-header",children:n.jsxs("div",{className:"container",children:[n.jsxs("h1",{children:[n.jsx("i",{className:"fas fa-book-open"})," 강의 운영 가이드"]}),n.jsx("p",{children:"Solar AI Learning Studio 교강사 운영 안내"})]})}),n.jsx("div",{className:"container section",children:n.jsx("div",{style:{maxWidth:"800px",margin:"0 auto"},children:[{title:"교육 개요",icon:"fa-info-circle",content:`• 교육 기간: 7일 (총 52시간)
+import{j as n}from"./index-4I-Z2uNE.js";function t(){return n.jsxs(n.Fragment,{children:[n.jsx("div",{className:"page-header",children:n.jsxs("div",{className:"container",children:[n.jsxs("h1",{children:[n.jsx("i",{className:"fas fa-book-open"})," 강의 운영 가이드"]}),n.jsx("p",{children:"Solar AI Learning Studio 교강사 운영 안내"})]})}),n.jsx("div",{className:"container section",children:n.jsx("div",{style:{maxWidth:"800px",margin:"0 auto"},children:[{title:"교육 개요",icon:"fa-info-circle",content:`• 교육 기간: 7일 (총 52시간)
 • 교육 방식: 이론 30% + 실습 70%
 • 정원: 20명 (소수정예)
 • 수료 조건: 출석 80% + 팀 프로젝트 제출`},{title:"일일 수업 구성",icon:"fa-clock",content:`• 09:00-10:00 이론 강의 (1시간)
