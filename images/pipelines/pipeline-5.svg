@@ -1,0 +1,124 @@
+<svg width="900" height="280" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fafbfc"/>
+      <stop offset="100%" style="stop-color:#f0f4f8"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="280" rx="16" fill="url(#bg5)"/>
+  <rect width="900" height="4" fill="#6366F1" rx="2"/>
+  <text x="450" y="40" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1a1a2e">
+    청년정책 챗봇 — 데이터 파이프라인
+  </text>
+  <text x="450" y="58" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#888">
+    Solar LLM 기반 6단계 처리 흐름
+  </text>
+  
+      <line x1="167" y1="125" x2="181" y2="125"
+            stroke="#6366F1" stroke-width="2" stroke-dasharray="4,2"/>
+      <polygon points="181,121 187,125 181,129"
+               fill="#6366F1"/>
+      <line x1="305" y1="125" x2="319" y2="125"
+            stroke="#6366F1" stroke-width="2" stroke-dasharray="4,2"/>
+      <polygon points="319,121 325,125 319,129"
+               fill="#6366F1"/>
+      <line x1="443" y1="125" x2="457" y2="125"
+            stroke="#6366F1" stroke-width="2" stroke-dasharray="4,2"/>
+      <polygon points="457,121 463,125 457,129"
+               fill="#6366F1"/>
+      <line x1="581" y1="125" x2="595" y2="125"
+            stroke="#6366F1" stroke-width="2" stroke-dasharray="4,2"/>
+      <polygon points="595,121 601,125 595,129"
+               fill="#6366F1"/>
+      <line x1="719" y1="125" x2="733" y2="125"
+            stroke="#6366F1" stroke-width="2" stroke-dasharray="4,2"/>
+      <polygon points="733,121 739,125 733,129"
+               fill="#6366F1"/>
+  
+    <g>
+      <rect x="45" y="80" width="120" height="90" rx="10"
+            fill="#6366F110" stroke="#6366F1" stroke-width="2"/>
+      <text x="105" y="100" text-anchor="middle"
+            font-size="16">📄</text>
+      <text x="105" y="122" text-anchor="middle"
+            font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a2e">정책 수집</text>
+      <text x="105" y="140" text-anchor="middle"
+            font-family="sans-serif" font-size="9" fill="#666">200건+ 크롤링</text>
+      <circle cx="105" cy="186" r="10"
+              fill="#6366F1" opacity="0.9"/>
+      <text x="105" y="190" text-anchor="middle"
+            font-family="sans-serif" font-size="9" font-weight="bold" fill="#fff">1</text>
+    </g>
+    <g>
+      <rect x="183" y="80" width="120" height="90" rx="10"
+            fill="#6366F110" stroke="#6366F1" stroke-width="2"/>
+      <text x="243" y="100" text-anchor="middle"
+            font-size="16">🗂️</text>
+      <text x="243" y="122" text-anchor="middle"
+            font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a2e">구조화</text>
+      <text x="243" y="140" text-anchor="middle"
+            font-family="sans-serif" font-size="9" fill="#666">JSON 변환</text>
+      <circle cx="243" cy="186" r="10"
+              fill="#6366F1" opacity="0.9"/>
+      <text x="243" y="190" text-anchor="middle"
+            font-family="sans-serif" font-size="9" font-weight="bold" fill="#fff">2</text>
+    </g>
+    <g>
+      <rect x="321" y="80" width="120" height="90" rx="10"
+            fill="#6366F110" stroke="#6366F1" stroke-width="2"/>
+      <text x="381" y="100" text-anchor="middle"
+            font-size="16">🔢</text>
+      <text x="381" y="122" text-anchor="middle"
+            font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a2e">벡터 인덱싱</text>
+      <text x="381" y="140" text-anchor="middle"
+            font-family="sans-serif" font-size="9" fill="#666">Solar Embedding</text>
+      <circle cx="381" cy="186" r="10"
+              fill="#6366F1" opacity="0.9"/>
+      <text x="381" y="190" text-anchor="middle"
+            font-family="sans-serif" font-size="9" font-weight="bold" fill="#fff">3</text>
+    </g>
+    <g>
+      <rect x="459" y="80" width="120" height="90" rx="10"
+            fill="#6366F110" stroke="#6366F1" stroke-width="2"/>
+      <text x="519" y="100" text-anchor="middle"
+            font-size="16">💬</text>
+      <text x="519" y="122" text-anchor="middle"
+            font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a2e">프로파일 파악</text>
+      <text x="519" y="140" text-anchor="middle"
+            font-family="sans-serif" font-size="9" fill="#666">대화형 조건 수집</text>
+      <circle cx="519" cy="186" r="10"
+              fill="#6366F1" opacity="0.9"/>
+      <text x="519" y="190" text-anchor="middle"
+            font-family="sans-serif" font-size="9" font-weight="bold" fill="#fff">4</text>
+    </g>
+    <g>
+      <rect x="597" y="80" width="120" height="90" rx="10"
+            fill="#6366F110" stroke="#6366F1" stroke-width="2"/>
+      <text x="657" y="100" text-anchor="middle"
+            font-size="16">🎯</text>
+      <text x="657" y="122" text-anchor="middle"
+            font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a2e">정책 매칭</text>
+      <text x="657" y="140" text-anchor="middle"
+            font-family="sans-serif" font-size="9" fill="#666">RAG + 조건 필터</text>
+      <circle cx="657" cy="186" r="10"
+              fill="#6366F1" opacity="0.9"/>
+      <text x="657" y="190" text-anchor="middle"
+            font-family="sans-serif" font-size="9" font-weight="bold" fill="#fff">5</text>
+    </g>
+    <g>
+      <rect x="735" y="80" width="120" height="90" rx="10"
+            fill="#6366F110" stroke="#6366F1" stroke-width="2"/>
+      <text x="795" y="100" text-anchor="middle"
+            font-size="16">📢</text>
+      <text x="795" y="122" text-anchor="middle"
+            font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a2e">쉬운말 안내</text>
+      <text x="795" y="140" text-anchor="middle"
+            font-family="sans-serif" font-size="9" fill="#666">Solar Chat 변환</text>
+      <circle cx="795" cy="186" r="10"
+              fill="#6366F1" opacity="0.9"/>
+      <text x="795" y="190" text-anchor="middle"
+            font-family="sans-serif" font-size="9" font-weight="bold" fill="#fff">6</text>
+    </g>
+  <line x1="45" y1="186" x2="855" y2="186"
+        stroke="#6366F1" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.3"/>
+</svg>
