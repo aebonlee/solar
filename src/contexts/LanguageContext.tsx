@@ -22,12 +22,7 @@ export const LanguageProvider = ({ children }: LanguageProviderProps): ReactElem
   };
 
   const t = (key: string): string => {
-    const keys = key.split('.');
-    let value: unknown = translations[language];
-    for (const k of keys) {
-      value = (value as Record<string, unknown>)?.[k];
-    }
-    return (typeof value === 'string' ? value : key);
+    return translations[language]?.[key] ?? key;
   };
 
   return (
