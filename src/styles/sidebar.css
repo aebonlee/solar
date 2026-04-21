@@ -17,7 +17,7 @@
   height: calc(100vh - var(--navbar-height));
   overflow-y: auto;
   flex-shrink: 0;
-  padding: 1.5rem 0;
+  padding: 1.5rem 0.75rem;
   transition: var(--transition);
 }
 
@@ -25,7 +25,7 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0 1.25rem 1rem;
+  padding: 0 0.5rem 1rem;
   margin-bottom: 0.5rem;
   border-bottom: 1px solid var(--border);
   font-size: 1rem;
@@ -60,7 +60,7 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.6rem 1.25rem;
+  padding: 0.6rem 0.75rem;
   font-size: 0.85rem;
   color: var(--text-secondary);
   text-decoration: none;
@@ -71,6 +71,7 @@
   cursor: pointer;
   transition: var(--transition);
   border-left: 3px solid transparent;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
 .sidebar-link:hover {
@@ -119,7 +120,7 @@
 }
 
 .sidebar-submenu .sidebar-link {
-  padding-left: 2.5rem;
+  padding-left: 2rem;
   font-size: 0.82rem;
   font-weight: 400;
 }
@@ -129,7 +130,7 @@
 }
 
 .sidebar-login-notice {
-  margin: 1.5rem 1.25rem;
+  margin: 1.5rem 0.5rem;
   padding: 1rem;
   background: var(--bg-tertiary);
   border-radius: var(--radius);
