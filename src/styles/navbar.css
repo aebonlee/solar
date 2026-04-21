@@ -130,6 +130,12 @@
   background: var(--bg-tertiary);
 }
 
+.navbar-link-icon {
+  font-size: 0.8rem;
+  margin-right: 0.3rem;
+  opacity: 0.7;
+}
+
 .dropdown-divider-label {
   padding: 0.5rem 1rem 0.3rem;
   font-size: 0.72rem;
