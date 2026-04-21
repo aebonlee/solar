@@ -74,7 +74,7 @@ const projects: ProjectInfo[] = [
     title: 'AI 자기소개서·면접 코치',
     overview: '청년 구직자의 경험을 자기소개서 문장과 면접 답변으로 구조화하는 앱',
     targetUsers: '취업준비생, 진로전환 희망자',
-    features: '경험 정리, 자기소개�� 문장 생성, 면접 예상질문, 답변 피드백',
+    features: '경험 정리, 자기소개서 문장 생성, 면접 예상질문, 답변 피드백',
     solarUsage: '경험 구조화, 문장 개선, 예상질문 생성, 답변 코칭',
     expansion: '취업지원형 AI 서비스로 확장 가능',
     color: '#8B5CF6',
@@ -101,7 +101,7 @@ export default function ProjectShowcase(): ReactElement {
       <section className="section" data-aos="fade-up">
         <div className="section-header">
           <h1><i className="fas fa-diagram-project"></i> Solar AI 프로젝트</h1>
-          <p>업스테이지 Solar LLM을 활용한 7가지 실전 프로��트</p>
+          <p>업스테이지 Solar LLM을 활용한 7가지 실전 프로젝트</p>
         </div>
 
         <div className="project-showcase-grid">
