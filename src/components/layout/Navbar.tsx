@@ -64,7 +64,6 @@ export default function Navbar(): ReactElement {
               to={section.path}
               className={`navbar-link ${activeSection === section.id ? 'active' : ''}`}
             >
-              <i className={`fas ${section.icon} navbar-link-icon`}></i>
               {language === 'en' ? section.labelEn : section.label}
             </Link>
           ))}
