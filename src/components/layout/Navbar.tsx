@@ -51,9 +51,6 @@ export default function Navbar(): ReactElement {
         </button>
 
         <div className={`navbar-menu ${mobileOpen ? 'is-open' : ''}`}>
-          <Link to="/" className={`navbar-link ${isActive('/') && location.pathname === '/' ? 'active' : ''}`}>
-            {t('nav.home')}
-          </Link>
           <Link to="/course-intro" className={`navbar-link ${isActive('/course-intro') ? 'active' : ''}`}>
             {t('nav.course')}
           </Link>
