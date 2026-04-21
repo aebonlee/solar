@@ -145,7 +145,22 @@
   color: var(--text-secondary);
 }
 
-/* Pipeline */
+/* Pipeline SVG */
+.pipeline-svg-wrapper {
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.pipeline-svg {
+  width: 100%;
+  height: auto;
+  min-width: 700px;
+  display: block;
+}
+
+/* Pipeline steps */
 .pipeline-steps {
   display: flex;
   flex-direction: column;

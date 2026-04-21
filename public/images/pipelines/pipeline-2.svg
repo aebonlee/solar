@@ -1,0 +1,124 @@
+<svg width="900" height="280" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fafbfc"/>
+      <stop offset="100%" style="stop-color:#f0f4f8"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="280" rx="16" fill="url(#bg2)"/>
+  <rect width="900" height="4" fill="#F59E0B" rx="2"/>
+  <text x="450" y="40" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1a1a2e">
+    문화재 AI 해설 — 데이터 파이프라인
+  </text>
+  <text x="450" y="58" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#888">
+    Solar LLM 기반 6단계 처리 흐름
+  </text>
+  
+      <line x1="167" y1="125" x2="181" y2="125"
+            stroke="#F59E0B" stroke-width="2" stroke-dasharray="4,2"/>
+      <polygon points="181,121 187,125 181,129"
+               fill="#F59E0B"/>
+      <line x1="305" y1="125" x2="319" y2="125"
+            stroke="#F59E0B" stroke-width="2" stroke-dasharray="4,2"/>
+      <polygon points="319,121 325,125 319,129"
+               fill="#F59E0B"/>
+      <line x1="443" y1="125" x2="457" y2="125"
+            stroke="#F59E0B" stroke-width="2" stroke-dasharray="4,2"/>
+      <polygon points="457,121 463,125 457,129"
+               fill="#F59E0B"/>
+      <line x1="581" y1="125" x2="595" y2="125"
+            stroke="#F59E0B" stroke-width="2" stroke-dasharray="4,2"/>
+      <polygon points="595,121 601,125 595,129"
+               fill="#F59E0B"/>
+      <line x1="719" y1="125" x2="733" y2="125"
+            stroke="#F59E0B" stroke-width="2" stroke-dasharray="4,2"/>
+      <polygon points="733,121 739,125 733,129"
+               fill="#F59E0B"/>
+  
+    <g>
+      <rect x="45" y="80" width="120" height="90" rx="10"
+            fill="#F59E0B10" stroke="#F59E0B" stroke-width="2"/>
+      <text x="105" y="100" text-anchor="middle"
+            font-size="16">🏛️</text>
+      <text x="105" y="122" text-anchor="middle"
+            font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a2e">데이터 수집</text>
+      <text x="105" y="140" text-anchor="middle"
+            font-family="sans-serif" font-size="9" fill="#666">문화재청 API</text>
+      <circle cx="105" cy="186" r="10"
+              fill="#F59E0B" opacity="0.9"/>
+      <text x="105" y="190" text-anchor="middle"
+            font-family="sans-serif" font-size="9" font-weight="bold" fill="#fff">1</text>
+    </g>
+    <g>
+      <rect x="183" y="80" width="120" height="90" rx="10"
+            fill="#F59E0B10" stroke="#F59E0B" stroke-width="2"/>
+      <text x="243" y="100" text-anchor="middle"
+            font-size="16">✂️</text>
+      <text x="243" y="122" text-anchor="middle"
+            font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a2e">텍스트 청킹</text>
+      <text x="243" y="140" text-anchor="middle"
+            font-family="sans-serif" font-size="9" fill="#666">500토큰 분할</text>
+      <circle cx="243" cy="186" r="10"
+              fill="#F59E0B" opacity="0.9"/>
+      <text x="243" y="190" text-anchor="middle"
+            font-family="sans-serif" font-size="9" font-weight="bold" fill="#fff">2</text>
+    </g>
+    <g>
+      <rect x="321" y="80" width="120" height="90" rx="10"
+            fill="#F59E0B10" stroke="#F59E0B" stroke-width="2"/>
+      <text x="381" y="100" text-anchor="middle"
+            font-size="16">🔢</text>
+      <text x="381" y="122" text-anchor="middle"
+            font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a2e">Embedding</text>
+      <text x="381" y="140" text-anchor="middle"
+            font-family="sans-serif" font-size="9" fill="#666">Solar 벡터화</text>
+      <circle cx="381" cy="186" r="10"
+              fill="#F59E0B" opacity="0.9"/>
+      <text x="381" y="190" text-anchor="middle"
+            font-family="sans-serif" font-size="9" font-weight="bold" fill="#fff">3</text>
+    </g>
+    <g>
+      <rect x="459" y="80" width="120" height="90" rx="10"
+            fill="#F59E0B10" stroke="#F59E0B" stroke-width="2"/>
+      <text x="519" y="100" text-anchor="middle"
+            font-size="16">🔍</text>
+      <text x="519" y="122" text-anchor="middle"
+            font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a2e">RAG 검색</text>
+      <text x="519" y="140" text-anchor="middle"
+            font-family="sans-serif" font-size="9" fill="#666">유사도 Top-5</text>
+      <circle cx="519" cy="186" r="10"
+              fill="#F59E0B" opacity="0.9"/>
+      <text x="519" y="190" text-anchor="middle"
+            font-family="sans-serif" font-size="9" font-weight="bold" fill="#fff">4</text>
+    </g>
+    <g>
+      <rect x="597" y="80" width="120" height="90" rx="10"
+            fill="#F59E0B10" stroke="#F59E0B" stroke-width="2"/>
+      <text x="657" y="100" text-anchor="middle"
+            font-size="16">📝</text>
+      <text x="657" y="122" text-anchor="middle"
+            font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a2e">수준별 해설</text>
+      <text x="657" y="140" text-anchor="middle"
+            font-family="sans-serif" font-size="9" fill="#666">Solar Chat 생성</text>
+      <circle cx="657" cy="186" r="10"
+              fill="#F59E0B" opacity="0.9"/>
+      <text x="657" y="190" text-anchor="middle"
+            font-family="sans-serif" font-size="9" font-weight="bold" fill="#fff">5</text>
+    </g>
+    <g>
+      <rect x="735" y="80" width="120" height="90" rx="10"
+            fill="#F59E0B10" stroke="#F59E0B" stroke-width="2"/>
+      <text x="795" y="100" text-anchor="middle"
+            font-size="16">❓</text>
+      <text x="795" y="122" text-anchor="middle"
+            font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a2e">퀴즈 출력</text>
+      <text x="795" y="140" text-anchor="middle"
+            font-family="sans-serif" font-size="9" fill="#666">자동 문제 생성</text>
+      <circle cx="795" cy="186" r="10"
+              fill="#F59E0B" opacity="0.9"/>
+      <text x="795" y="190" text-anchor="middle"
+            font-family="sans-serif" font-size="9" font-weight="bold" fill="#fff">6</text>
+    </g>
+  <line x1="45" y1="186" x2="855" y2="186"
+        stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.3"/>
+</svg>

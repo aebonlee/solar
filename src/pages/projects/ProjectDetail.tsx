@@ -97,6 +97,13 @@ export default function ProjectDetail({ project }: Props): ReactElement {
       {/* 데이터 파이프라인 */}
       <section className="project-section" data-aos="fade-up">
         <h2><i className="fas fa-arrows-spin"></i> 데이터 파이프라인</h2>
+        <div className="pipeline-svg-wrapper">
+          <img
+            src={`/images/pipelines/pipeline-${project.id}.svg`}
+            alt={`${project.title} 파이프라인`}
+            className="pipeline-svg"
+          />
+        </div>
         <div className="pipeline-steps">
           {project.pipeline.steps.map((step) => (
             <div key={step.step} className="pipeline-step card">

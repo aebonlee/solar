@@ -17,7 +17,7 @@ export default function About(): ReactElement {
       </section>
 
       {/* Upstage Solar LLM 소개 */}
-      <section className="section" data-aos="fade-up">
+      <section id="features" className="section" data-aos="fade-up">
         <h2><i className="fas fa-sun"></i> 업스테이지 Solar LLM</h2>
         <div className="card" style={{ padding: '2rem' }}>
           <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
@@ -74,7 +74,7 @@ export default function About(): ReactElement {
       </section>
 
       {/* 본 교육 과정 소개 */}
-      <section className="section" data-aos="fade-up">
+      <section id="course" className="section" data-aos="fade-up">
         <h2><i className="fas fa-graduation-cap"></i> 본 교육 과정</h2>
         <div className="card" style={{ padding: '2rem' }}>
           <p style={{ fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
@@ -126,7 +126,7 @@ export default function About(): ReactElement {
       </section>
 
       {/* 강사 정보 */}
-      <section className="section" data-aos="fade-up">
+      <section id="instructor" className="section" data-aos="fade-up">
         <h2><i className="fas fa-chalkboard-user"></i> 강사 소개</h2>
         <div className="card" style={{ padding: '2rem' }}>
           <h3 style={{ marginBottom: '1rem' }}>이애본 박사 (Ph.D)</h3>
