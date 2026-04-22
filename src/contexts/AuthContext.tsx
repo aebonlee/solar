@@ -5,6 +5,7 @@ import { getProfile, updateProfile, signOut as authSignOut } from '../utils/auth
 import { ADMIN_EMAILS } from '../config/admin';
 import type { UserProfile, AccountBlock } from '../types';
 import { useIdleTimeout } from '../hooks/useIdleTimeout';
+import PaymentNudgePopup from '../components/PaymentNudgePopup';
 
 interface AuthContextValue {
   user: User | null;
@@ -178,6 +179,9 @@ export const AuthProvider = ({ children }: AuthProviderProps): ReactElement => {
       clearAccountBlock: () => setAccountBlock(null),
     }}>
       {children}
+      {isLoggedIn && user && (
+        <PaymentNudgePopup user={user} siteSlug="solar" />
+      )}
     </AuthContext.Provider>
   );
 };
