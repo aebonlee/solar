@@ -11,12 +11,7 @@
   .footer-container { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
 
-  .roadmap-timeline::before { left: 20px; }
-  .roadmap-item { flex-direction: column !important; align-items: flex-start; }
-  .roadmap-item:nth-child(odd) .roadmap-content { text-align: left; padding-right: 0; padding-left: 3.5rem; }
-  .roadmap-item:nth-child(even) .roadmap-content { padding-left: 3.5rem; }
-  .roadmap-item:nth-child(odd) .roadmap-topics { justify-content: flex-start; }
-  .roadmap-dot { left: 20px !important; position: absolute; top: 0; transform: translateX(-50%); }
+  /* roadmap responsive → roadmap.css로 이동 */
 }
 
 @media (max-width: 768px) {
