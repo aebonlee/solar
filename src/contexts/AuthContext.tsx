@@ -6,6 +6,7 @@ import { ADMIN_EMAILS } from '../config/admin';
 import type { UserProfile, AccountBlock } from '../types';
 import { useIdleTimeout } from '../hooks/useIdleTimeout';
 import PaymentNudgePopup from '../components/PaymentNudgePopup';
+import ProfileCompleteModal from '../components/ProfileCompleteModal';
 
 interface AuthContextValue {
   user: User | null;
@@ -158,6 +159,7 @@ export const AuthProvider = ({ children }: AuthProviderProps): ReactElement => {
   ].filter((e): e is string => Boolean(e)).map((e) => e.toLowerCase());
   const isAdmin = allEmails.some((e) => ADMIN_EMAILS.includes(e));
   const isLoggedIn = !!user;
+  const needsProfileCompletion = isLoggedIn && !!profile && !profile.name;
 
   useIdleTimeout({
     enabled: isLoggedIn,
@@ -179,7 +181,10 @@ export const AuthProvider = ({ children }: AuthProviderProps): ReactElement => {
       clearAccountBlock: () => setAccountBlock(null),
     }}>
       {children}
-      {isLoggedIn && user && (
+      {needsProfileCompletion && user && (
+        <ProfileCompleteModal user={user} onComplete={refreshProfile} />
+      )}
+      {isLoggedIn && user && !needsProfileCompletion && (
         <PaymentNudgePopup user={user} siteSlug="solar" />
       )}
     </AuthContext.Provider>
