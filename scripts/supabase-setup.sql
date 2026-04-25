@@ -1,6 +1,7 @@
 -- ═══════════════════════════════════════════════════════════════
 -- Solar AI Learning Studio — Supabase 테이블 생성 (solar_ prefix)
 -- 실행: Supabase SQL Editor에서 실행
+-- 멱등성 보장: 여러 번 실행해도 에러 없음
 -- ═══════════════════════════════════════════════════════════════
 
 -- ─── 1. solar_progress (학습 진도) ───
@@ -89,6 +90,7 @@ CREATE TABLE IF NOT EXISTS solar_evaluations (
 
 -- ═══════════════════════════════════════════════════════════════
 -- RLS (Row Level Security) 정책
+-- DROP IF EXISTS 후 재생성으로 멱등성 보장
 -- ═══════════════════════════════════════════════════════════════
 
 ALTER TABLE solar_progress ENABLE ROW LEVEL SECURITY;
@@ -98,75 +100,89 @@ ALTER TABLE solar_projects ENABLE ROW LEVEL SECURITY;
 ALTER TABLE solar_project_members ENABLE ROW LEVEL SECURITY;
 ALTER TABLE solar_evaluations ENABLE ROW LEVEL SECURITY;
 
--- solar_progress: 본인 읽기/쓰기
+-- ── solar_progress 정책 ──
+DROP POLICY IF EXISTS "solar_progress_select_own" ON solar_progress;
 CREATE POLICY "solar_progress_select_own" ON solar_progress
   FOR SELECT USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "solar_progress_insert_own" ON solar_progress;
 CREATE POLICY "solar_progress_insert_own" ON solar_progress
   FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "solar_progress_update_own" ON solar_progress;
 CREATE POLICY "solar_progress_update_own" ON solar_progress
   FOR UPDATE USING (auth.uid() = user_id);
 
--- solar_progress: superadmin 전체 접근
+DROP POLICY IF EXISTS "solar_progress_admin_all" ON solar_progress;
 CREATE POLICY "solar_progress_admin_all" ON solar_progress
   FOR ALL USING (
     EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'superadmin')
   );
 
--- solar_submissions: 본인 읽기/쓰기
+-- ── solar_submissions 정책 ──
+DROP POLICY IF EXISTS "solar_submissions_select_own" ON solar_submissions;
 CREATE POLICY "solar_submissions_select_own" ON solar_submissions
   FOR SELECT USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "solar_submissions_insert_own" ON solar_submissions;
 CREATE POLICY "solar_submissions_insert_own" ON solar_submissions
   FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "solar_submissions_update_own" ON solar_submissions;
 CREATE POLICY "solar_submissions_update_own" ON solar_submissions
   FOR UPDATE USING (auth.uid() = user_id);
 
--- solar_submissions: superadmin 전체 접근 (채점 등)
+DROP POLICY IF EXISTS "solar_submissions_admin_all" ON solar_submissions;
 CREATE POLICY "solar_submissions_admin_all" ON solar_submissions
   FOR ALL USING (
     EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'superadmin')
   );
 
--- solar_notices: 모든 인증 사용자 읽기
+-- ── solar_notices 정책 ──
+DROP POLICY IF EXISTS "solar_notices_select_all" ON solar_notices;
 CREATE POLICY "solar_notices_select_all" ON solar_notices
   FOR SELECT USING (auth.role() = 'authenticated');
 
--- solar_notices: superadmin만 쓰기
+DROP POLICY IF EXISTS "solar_notices_admin_write" ON solar_notices;
 CREATE POLICY "solar_notices_admin_write" ON solar_notices
   FOR ALL USING (
     EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'superadmin')
   );
 
--- solar_projects: 모든 인증 사용자 읽기
+-- ── solar_projects 정책 ──
+DROP POLICY IF EXISTS "solar_projects_select_all" ON solar_projects;
 CREATE POLICY "solar_projects_select_all" ON solar_projects
   FOR SELECT USING (auth.role() = 'authenticated');
 
--- solar_projects: superadmin 쓰기
+DROP POLICY IF EXISTS "solar_projects_admin_write" ON solar_projects;
 CREATE POLICY "solar_projects_admin_write" ON solar_projects
   FOR ALL USING (
     EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'superadmin')
   );
 
--- solar_project_members: 모든 인증 사용자 읽기
+-- ── solar_project_members 정책 ──
+DROP POLICY IF EXISTS "solar_project_members_select_all" ON solar_project_members;
 CREATE POLICY "solar_project_members_select_all" ON solar_project_members
   FOR SELECT USING (auth.role() = 'authenticated');
 
--- solar_project_members: superadmin 쓰기
+DROP POLICY IF EXISTS "solar_project_members_admin_write" ON solar_project_members;
 CREATE POLICY "solar_project_members_admin_write" ON solar_project_members
   FOR ALL USING (
     EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'superadmin')
   );
 
--- solar_evaluations: 본인 것만 읽기 (evaluator)
+-- ── solar_evaluations 정책 ──
+DROP POLICY IF EXISTS "solar_evaluations_select_own" ON solar_evaluations;
 CREATE POLICY "solar_evaluations_select_own" ON solar_evaluations
   FOR SELECT USING (auth.uid() = evaluator_id);
 
--- solar_evaluations: superadmin 전체 접근
+DROP POLICY IF EXISTS "solar_evaluations_admin_all" ON solar_evaluations;
 CREATE POLICY "solar_evaluations_admin_all" ON solar_evaluations
   FOR ALL USING (
     EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'superadmin')
   );
 
--- solar_evaluations: 인증 사용자 동료 평가 제출
+DROP POLICY IF EXISTS "solar_evaluations_insert_peer" ON solar_evaluations;
 CREATE POLICY "solar_evaluations_insert_peer" ON solar_evaluations
   FOR INSERT WITH CHECK (auth.uid() = evaluator_id AND type = 'peer');
 
@@ -193,18 +209,22 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+DROP TRIGGER IF EXISTS solar_progress_updated ON solar_progress;
 CREATE TRIGGER solar_progress_updated
   BEFORE UPDATE ON solar_progress
   FOR EACH ROW EXECUTE FUNCTION solar_update_timestamp();
 
+DROP TRIGGER IF EXISTS solar_submissions_updated ON solar_submissions;
 CREATE TRIGGER solar_submissions_updated
   BEFORE UPDATE ON solar_submissions
   FOR EACH ROW EXECUTE FUNCTION solar_update_timestamp();
 
+DROP TRIGGER IF EXISTS solar_notices_updated ON solar_notices;
 CREATE TRIGGER solar_notices_updated
   BEFORE UPDATE ON solar_notices
   FOR EACH ROW EXECUTE FUNCTION solar_update_timestamp();
 
+DROP TRIGGER IF EXISTS solar_projects_updated ON solar_projects;
 CREATE TRIGGER solar_projects_updated
   BEFORE UPDATE ON solar_projects
   FOR EACH ROW EXECUTE FUNCTION solar_update_timestamp();
