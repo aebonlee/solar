@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import Sidebar from '../components/layout/Sidebar';
@@ -77,6 +77,7 @@ export default function PublicLayout(): ReactElement {
                   <Route path="/course-intro" element={<CourseIntro />} />
 
                   {/* Instructor (AdminGuard) */}
+                  <Route path="/instructor" element={<Navigate to="/instructor/dashboard" replace />} />
                   <Route path="/instructor/dashboard" element={<AdminGuard><InstructorDashboard /></AdminGuard>} />
                   <Route path="/instructor/teaching-guide" element={<AdminGuard><TeachingGuide /></AdminGuard>} />
                   <Route path="/instructor/lesson-plans" element={<AdminGuard><LessonPlans /></AdminGuard>} />
@@ -85,6 +86,7 @@ export default function PublicLayout(): ReactElement {
                   <Route path="/instructor/evaluation" element={<AdminGuard><Evaluation /></AdminGuard>} />
 
                   {/* Learner (AuthGuard) */}
+                  <Route path="/learner" element={<Navigate to="/learner/dashboard" replace />} />
                   <Route path="/learner/dashboard" element={<AuthGuard><LearnerDashboard /></AuthGuard>} />
                   <Route path="/learner/roadmap" element={<AuthGuard><Roadmap /></AuthGuard>} />
                   <Route path="/learner/lessons" element={<AuthGuard><DailyLessons /></AuthGuard>} />
