@@ -131,9 +131,9 @@ export default function About(): ReactElement {
         <div className="card" style={{ padding: '2rem' }}>
           <h3 style={{ marginBottom: '1rem' }}>이애본 박사 (Ph.D)</h3>
           <ul style={{ lineHeight: '2', color: 'var(--text-muted)' }}>
+            <li>한신대학교 AI·SW대학 겸임교수</li>
+            <li>드림아이티비즈(DreamIT Biz) 대표</li>
             <li>AI·데이터 분야 전문 강사</li>
-            <li>DreamIT Biz 대표</li>
-            <li>75개 교육 플랫폼 운영</li>
             <li>경기대학교 박사 (AI/교육공학)</li>
           </ul>
         </div>
