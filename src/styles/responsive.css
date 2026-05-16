@@ -19,6 +19,11 @@
     --navbar-height: 56px;
   }
 
+  /* Touch target minimum size */
+  .btn, .nav-login-btn, button:not(.mobile-toggle) {
+      min-height: 44px;
+  }
+
   .navbar-toggle {
     display: flex;
   }
